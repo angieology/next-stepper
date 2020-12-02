@@ -21,6 +21,6 @@ and go to [localhost:3000](http://localhost:3000) to view site
 
 ### TODO
 * Fix loading issue when landing directly into stepper: implement Redirect and/or SSR
-
+* Try alternative to intializing Router context - polyfill `history.listen()`
 
 ![alt text](/public/demo.gif)
