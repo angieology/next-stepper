@@ -19,5 +19,8 @@ and go to [localhost:3000](http://localhost:3000) to view site
 * pass a `basename` prop to override default
 * Currently stepper is unable to navigate backwards after the 'nested' section
 
+### TODO
+* Fix loading issue when landing directly into stepper: implement Redirect and/or SSR
+
 
 ![alt text](/public/demo.gif)
