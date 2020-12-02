@@ -20,7 +20,11 @@ and go to [localhost:3000](http://localhost:3000) to view site
 * Currently stepper is unable to navigate backwards after the 'nested' section
 
 ### TODO
-* Fix loading issue when landing directly into stepper: implement Redirect and/or SSR
+* Fix loading issue when landing directly into stepper: implement [Redirect](https://nextjs.org/docs/api-reference/next.config.js/redirects) and/or SSR
 * Try alternative to intializing Router context - polyfill `history.listen()`
 
+### Payment step flow in Membership
+![payment steps](/public/images/payment-step.jpg)
+
+### Screenshot
 ![alt text](/public/demo.gif)

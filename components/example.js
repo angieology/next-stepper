@@ -2,6 +2,7 @@ import React from "react";
 import { Wizard, Steps, Step } from "react-albus";
 import styled from "styled-components";
 import { useHistory } from "react-router-dom";
+import { createMemoryHistory } from "history";
 
 const ButtonGroup = styled.div`
   button:not(:last-child) {
@@ -31,7 +32,8 @@ const Button = styled.button`
 `;
 
 const Example = ({ basename }) => {
-  const history = useHistory();
+
+  const history = global.window ? useHistory() : createMemoryHistory();
   return (
     <StepperLayout>
       <Wizard history={history} basename={basename}>
@@ -45,8 +47,7 @@ const Example = ({ basename }) => {
                   <Step
                     id="add"
                     render={({ next: nextInner }) => (
-                      <div>
-
+                      <div>{console.log("here")}
                         <Title>Step 1, Manage: Add child</Title>
                         <ButtonGroup>
                           <Button onClick={nextInner}>Next</Button>
