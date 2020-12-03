@@ -21,10 +21,8 @@ and go to [localhost:3000](http://localhost:3000) to view site
 * must include redirects for any path in step wizard, or NextJS will display 404.
 
 ### Issues
-* Fix loading issue when landing directly into stepper: implement [Redirect](https://nextjs.org/docs/api-reference/next.config.js/redirects) and/or SSR. Error:
-```
-Error: Invariant failed: Browser history needs a DOM
-```
+* ~~Fix loading issue when landing directly into stepper: implement [Redirect](https://nextjs.org/docs/api-reference/next.config.js/redirects) and/or SSR.~~ Fixed but needs to fix style.
+
 
 * alternative to intializing Router context - polyfill `history.listen()` is currently not working - displays 404 for all step paths
 
