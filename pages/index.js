@@ -19,7 +19,10 @@ export default function Home() {
           </p>
         <ul>
           <li>
-            <Link href="/albus-sample">Nested Stepper with Route Change</Link>
+            <Link href="/albus">Nested Stepper with router and history merged</Link>
+          </li>
+          <li>
+            <Link href="/albus-polyfill">Nested Stepper with Polyfill</Link>
           </li>
         </ul>
       </section>
