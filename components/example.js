@@ -1,8 +1,6 @@
 import React from "react";
 import { Wizard, Steps, Step } from "react-albus";
 import styled from "styled-components";
-// import { useHistory } from "react-router-dom";
-// import { createMemoryHistory } from "history";
 import { useRouter } from "next/router";
 import listen from "../utils/listen-polyfill";
 
@@ -35,25 +33,10 @@ const Button = styled.button`
 
 const Example = ({ basename }) => {
   const router = useRouter();
-  // Wizard.propTypes = {
-  //   basename: PropTypes.string,
-  //   history: PropTypes.shape({
-  //     entries: PropTypes.array,
-  //     go: PropTypes.func,
-  //     goBack: PropTypes.func,
-  //     listen: PropTypes.func,
-  //     location: PropTypes.object,
-  //     push: PropTypes.func,
-  //     replace: PropTypes.func,
-  //   }),
-  //   onNext: PropTypes.func,
-  //   exactMatch: PropTypes.bool,
-  // };
+
   router.listen = listen;
   router.location = { pathname: router.pathname };
-  
-  // const history = global.window ? useHistory() : createMemoryHistory();
-
+ 
   return (
     <StepperLayout>
       <Wizard history={router} basename={basename}>
