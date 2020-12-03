@@ -1,8 +1,10 @@
 import React from "react";
 import { Wizard, Steps, Step } from "react-albus";
 import styled from "styled-components";
-import { useHistory } from "react-router-dom";
-import { createMemoryHistory } from "history";
+// import { useHistory } from "react-router-dom";
+// import { createMemoryHistory } from "history";
+import { useRouter } from "next/router";
+import listen from "../utils/listen-polyfill";
 
 const ButtonGroup = styled.div`
   button:not(:last-child) {
@@ -32,22 +34,41 @@ const Button = styled.button`
 `;
 
 const Example = ({ basename }) => {
+  const router = useRouter();
+  // Wizard.propTypes = {
+  //   basename: PropTypes.string,
+  //   history: PropTypes.shape({
+  //     entries: PropTypes.array,
+  //     go: PropTypes.func,
+  //     goBack: PropTypes.func,
+  //     listen: PropTypes.func,
+  //     location: PropTypes.object,
+  //     push: PropTypes.func,
+  //     replace: PropTypes.func,
+  //   }),
+  //   onNext: PropTypes.func,
+  //   exactMatch: PropTypes.bool,
+  // };
+  router.listen = listen;
+  router.location = { pathname: router.pathname };
+  
+  // const history = global.window ? useHistory() : createMemoryHistory();
 
-  const history = global.window ? useHistory() : createMemoryHistory();
   return (
     <StepperLayout>
-      <Wizard history={history} basename={basename}>
+      <Wizard history={router} basename={basename}>
         <Steps>
           <Step
             id="manage"
             render={({ next }) => (
               // nest another wizard to get two-level structure
-              <Wizard history={history} basename={basename + "/manage"}>
+              <Wizard history={router} basename={basename + "/manage"}>
                 <Steps>
                   <Step
                     id="add"
                     render={({ next: nextInner }) => (
-                      <div>{console.log("here")}
+                      <div>
+                        {console.log("here")}
                         <Title>Step 1, Manage: Add child</Title>
                         <ButtonGroup>
                           <Button onClick={nextInner}>Next</Button>
