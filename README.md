@@ -1,8 +1,8 @@
 
 
-## Demo of Step Wizard in NextJS
+# Demo of Step Wizard in NextJS
 
-### Getting Started
+## Getting Started
 
 `yarn install`
 
@@ -12,7 +12,7 @@
 
 and go to [localhost:3000](http://localhost:3000) to view site
 
-### Purpose
+## Purpose
 
 This project is a POC to test the feasibility of using the [React-albus step wizard](https://github.com/americanexpress/react-albus) inside of [NextJS framework](https://nextjs.org/). This investigation is necessary because a step wizard will assume some router history will be available to it, but the NextJS has its own implementation of the `react-router-com` that is __not 100% compatible.__
 
@@ -41,7 +41,12 @@ This demo also experiments with `styled-components`
 
 * Generally working in good condition, navigates back and forth between steps and updates the URL
 * Deeplink into the wizard will always send user back to first step, also serverside is not rendering, but that is same as site.
-<p>![ssr](/public/images/ssr.png)</p>
+
+<p>
+
+![ssr](/public/images/ssr.png)
+
+</p>
 
 ### Solution 1 Conclusion
 * This is generally working, but the approach is hacky, basically.
@@ -125,3 +130,10 @@ Refer to react-albus implementation:
 - [utils/renderCallback](https://github.com/americanexpress/react-albus/blob/master/src/utils/renderCallback.js)
 - [components/wizard](https://github.com/americanexpress/react-albus/blob/master/src/components/Wizard.js)
 - [components/Steps](https://github.com/americanexpress/react-albus/blob/master/src/components/Steps.js)
+
+### Final notes on using NextJS
+* Setting up the project was very easy
+* Styled-components are used the same way as our app
+* Routing may be changed
+* Setting up config may be changed, must be compatible with NextJS's own.
+* A good idea for next demo project will be to use SSR with Next, and testing webpack configurations.
