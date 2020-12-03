@@ -123,7 +123,7 @@ Instead of overriding logic in a component for a library that is already very sm
 
 ## Conclusion
 * two solutions mentioned are not robust enough. Changes we would have to make to customize this component would be simplified by writing our own component.
-* the library (`<Wizard/>` and `<Step/>` components, utils) are not too large to replicate.
+* the library (`<Wizard/>` and `<Step/>` components, utils) are not too large to replicate. __(< 200 lines of code)__
 
 Refer to react-albus implementation: 
 
