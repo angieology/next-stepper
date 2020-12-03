@@ -1,19 +1,11 @@
 import React from "react";
 import { Wizard, Steps, Step } from "react-albus";
 import styled from "styled-components";
-import { useRouter } from "next/router";
-import listen from "../utils/listen-polyfill";
 
 const ButtonGroup = styled.div`
   button:not(:last-child) {
     margin-right: 20px;
   }
-`;
-
-const StepperLayout = styled.section`
-  background-color: ${(props) => props.theme.colors.page};
-  border: 2px solid ${(props) => props.theme.main};
-  border-radius: 3px;
 `;
 
 const Title = styled.h2`
@@ -31,88 +23,71 @@ const Button = styled.button`
   border: 2px solid ${(props) => props.theme.main};
 `;
 
-const Example = ({ basename }) => {
-  const router = useRouter();
-
-  router.listen = listen;
-  router.location = { pathname: router.pathname };
- 
+const Example = ({ history, basename }) => {
   return (
-    <StepperLayout>
-      <Wizard history={router} basename={basename}>
-        <Steps>
-          <Step
-            id="manage"
-            render={({ next }) => (
-              // nest another wizard to get two-level structure
-              <Wizard history={router} basename={basename + "/manage"}>
-                <Steps>
-                  <Step
-                    id="add"
-                    render={({ next: nextInner }) => (
-                      <div>
-                        {console.log("here")}
-                        <Title>Step 1, Manage: Add child</Title>
-                        <ButtonGroup>
-                          <Button onClick={nextInner}>Next</Button>
-                        </ButtonGroup>
-                      </div>
-                    )}
-                  />
-                  <Step
-                    id="assign"
-                    render={({ previous: previousInner }) => (
-                      <div>
-                        <Title>Step 1, Manage: Assign child</Title>
-                        <ButtonGroup>
-                          <Button onClick={previousInner}>Previous</Button>
-                          <Button onClick={next}>Next</Button>
-                        </ButtonGroup>
-                      </div>
-                    )}
-                  />
-                </Steps>
-              </Wizard>
-            )}
-          />
-          <Step
-            id="merlin"
-            render={({ next, previous }) => (
+    <Wizard history={history} basename={basename}>
+      <Steps>
+        <Step
+          id="nested/hobbit"
+          render={({ next }) => (
+            <div>
+              <Title>Step 1, Nested: Hobbit</Title>
+              <ButtonGroup>
+                <Button onClick={next}>Next</Button>
+              </ButtonGroup>
+            </div>
+          )}
+        />
+        <Step
+          id="nested/dobby"
+          render={({ next, previous }) => (
+            <div>
+              <Title>Step 1, Nested: Dobby</Title>
+              <ButtonGroup>
+                <Button onClick={previous}>Previous</Button>
+                <Button onClick={next}>Next</Button>
+              </ButtonGroup>
+            </div>
+          )}
+        />
+
+        <Step
+          id="merlin"
+          render={({ next, previous }) => (
+            <div>
+              <Title>Step 2: Merlin</Title>
               <div>
-                <Title>Step 2: Merlin</Title>
-                <div>
-                  <Button onClick={previous}>Previous</Button>
-                  <Button onClick={next}>Next</Button>
-                </div>
+                <Button onClick={previous}>Previous</Button>
+                <Button onClick={next}>Next</Button>
               </div>
-            )}
-          />
-          <Step
-            id="gandalf"
-            render={({ next, previous }) => (
+            </div>
+          )}
+        />
+        <Step
+          id="gandalf"
+          render={({ next, previous }) => (
+            <div>
+              <Title>Step 3: Gandalf</Title>
               <div>
-                <Title>Step 3: Gandalf</Title>
-                <div>
-                  <Button onClick={previous}>Previous</Button>
-                  <Button onClick={next}>Next</Button>
-                </div>
+                <Button onClick={previous}>Previous</Button>
+                <Button onClick={next}>Next</Button>
               </div>
-            )}
-          />
-          <Step
-            id="dumbledore"
-            render={({ previous }) => (
+            </div>
+          )}
+        />
+        <Step
+          id="dumbledore"
+          render={({ previous }) => (
+            <div>
+              <Title>Step 4: Dumbledore</Title>
               <div>
-                <Title>Step 4: Dumbledore</Title>
-                <div>
-                  <Button onClick={previous}>Previous</Button>
-                </div>
+                <Button onClick={previous}>Previous</Button>
               </div>
-            )}
-          />
-        </Steps>
-      </Wizard>
-    </StepperLayout>
+            </div>
+          )}
+        />
+      </Steps>
+    </Wizard>
   );
 };
 
