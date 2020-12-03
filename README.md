@@ -132,9 +132,9 @@ Refer to react-albus implementation:
 - [components/wizard](https://github.com/americanexpress/react-albus/blob/master/src/components/Wizard.js)
 - [components/Steps](https://github.com/americanexpress/react-albus/blob/master/src/components/Steps.js)
 
-### Final notes on using NextJS
+## Next Steps and notes on NextJS
 * Setting up the project was very easy
 * Styled-components are used the same way as our app
 * Routing may be changed
 * Setting up config may be changed, must be compatible with NextJS's own.
-* A good idea for next demo project will be to use SSR with Next, and testing webpack configurations.
+* A good idea for next demo project or feature branch will be to use SSR with Next, and testing webpack configurations.
