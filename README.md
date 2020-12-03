@@ -130,6 +130,7 @@ Refer to react-albus implementation:
 - [utils/renderCallback](https://github.com/americanexpress/react-albus/blob/master/src/utils/renderCallback.js)
 - [components/wizard](https://github.com/americanexpress/react-albus/blob/master/src/components/Wizard.js)
 - [components/Steps](https://github.com/americanexpress/react-albus/blob/master/src/components/Steps.js)
+- This is the best solution that will give us more control and flexibility and less maintenance.
 
 ### Final notes on using NextJS
 * Setting up the project was very easy
