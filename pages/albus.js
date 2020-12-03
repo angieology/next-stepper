@@ -2,7 +2,7 @@ import Link from "next/link";
 import Head from "next/head";
 import Layout from "../components/layout";
 import Example from "../components/example";
-import { BrowserRouter, useHistory } from 'react-router-dom';
+import { BrowserRouter, StaticRouter, useHistory } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { useRouter } from 'next/router';
 import { merge } from 'lodash';
@@ -39,9 +39,9 @@ export default function StepWizard() {
         </Link>
       </h2>
       {/* Provider makes history state available to all children */}
-      <BrowserRouter>
+      {global.window ? <BrowserRouter>
         <StepperRouted/>
-      </BrowserRouter>
+      </BrowserRouter> : <StaticRouter> <StepperRouted/> </StaticRouter> }
     </Layout>
   );
 }
