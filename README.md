@@ -17,7 +17,6 @@ and go to [localhost:3000](http://localhost:3000) to view site
 ### Investigation results
 * `router` from NextJS is not sufficient for the Wizard, a `BrowserRouter` must be instantiated and component must have access to `history` prop. __The router object from NextJS has many of the same methods as `history`, but it is missing `listen` and a few others.__
 * pass a `basename` prop to override default
-* Currently stepper is unable to navigate backwards after the 'nested' section
 * must include redirects for any path in step wizard, or NextJS will display 404.
 
 ### Issues
