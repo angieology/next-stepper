@@ -19,7 +19,10 @@ const StepperLayout = styled.section`
 const StepperRouted = () => {
   const history = global.window ? useHistory() : createMemoryHistory();
   const router = useRouter();
-  merge(router, history);
+  console.log({router});
+
+  console.log({history})
+  // merge(router, history);
 
   return  <StepperLayout>
     <Example history={router} basename={"/albus"} />
