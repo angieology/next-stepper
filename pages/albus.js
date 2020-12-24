@@ -22,7 +22,7 @@ const StepperRouted = () => {
   console.log({router});
 
   console.log({history})
-  // merge(router, history);
+  merge(router, history);
 
   return  <StepperLayout>
     <Example history={router} basename={"/albus"} />

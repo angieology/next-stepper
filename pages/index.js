@@ -24,6 +24,9 @@ export default function Home() {
           <li>
             <Link href="/albus-polyfill">Nested Stepper with Polyfill</Link>
           </li>
+          <li>
+            <Link href="/purchase-flow/step-1">Membership</Link>
+          </li>
         </ul>
       </section>
     </Layout>
